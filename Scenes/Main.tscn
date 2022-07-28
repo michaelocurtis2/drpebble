@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/alpha_world.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UndergroundGen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Textures/portal.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Teleporter.gd" type="Script" id=5]
 
 [node name="InitalArea" type="Node2D"]
 
@@ -16,3 +18,11 @@ tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0
 position = Vector2( 0, 80 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+z_index = 2
+
+[node name="Teleporter" type="Node2D" parent="."]
+position = Vector2( 56, 56 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Teleporter"]
+texture = ExtResource( 4 )
