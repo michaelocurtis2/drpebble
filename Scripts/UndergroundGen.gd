@@ -34,13 +34,18 @@ func randomise_tile(var depth):
 	#Global.rng.randomize()
 	var chance = Global.rng.randf_range(0.0, 1.0)
 	
-	var depth_chance = (depth + 1) * 0.08
-	#print(float(depth_chance * 0.05))
+	var depth_chance = (depth + 1) * 0.12
 	
-	if chance < (depth_chance * 0.01):
-		#print("Diamond")
-		diamond_total += 1
-		return 2
+	if chance < (depth_chance * 0.02):
+		if (depth + 1) < (y_limit * 0.65):
+			#print("Rock")
+			rock_total += 1
+			return 0
+			
+		else:
+			#print("Diamond")
+			diamond_total += 1
+			return 2
 		
 	if chance < (depth_chance * 0.15):
 		#print("Coal")
