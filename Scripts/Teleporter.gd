@@ -1,8 +1,6 @@
 extends Node2D
 
-func _process(delta):
-	print(global_position)
-	
+func _process(_delta):
 	if Input.is_action_just_pressed("teleport"):
 		var player = get_parent().get_node("Player")
 		

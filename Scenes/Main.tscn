@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/alpha_world.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UndergroundGen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/Textures/portal.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Teleporter.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/worldtiles.gd" type="Script" id=6]
 
 [node name="InitalArea" type="Node2D"]
 
@@ -12,12 +13,14 @@
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0 )
+tile_data = PoolIntArray( -65552, 0, 0, -65551, 0, 0, -65550, 0, 0, -65549, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -5, 0, 0, 65532, 0, 0, 131069, 0, 0, 196606, 0, 0, 262143, 0, 0, 327679, 1, 65538, 262144, 1, 0, 262145, 1, 1, 262146, 1, 2, 262147, 1, 2, 262148, 1, 65538, 262149, 1, 2, 262150, 1, 1, 262154, 1, 1, 262155, 1, 0, 262156, 1, 1, 262157, 1, 65536, 262158, 1, 1, 262159, 1, 2, 262160, 1, 65536, 393215, 1, 0, 327696, 1, 1, 458751, 1, 1, 393232, 1, 65538, 524287, 1, 65537, 458768, 1, 2, 589823, 1, 1, 524304, 1, 1, 655359, 1, 65538, 589840, 1, 0, 720895, 1, 1, 655376, 1, 2, 786431, 1, 65536, 720912, 1, 2, 851967, 1, 1, 786448, 1, 1, 917503, 1, 65537, 851984, 1, 2, 983039, 1, 65537, 917504, 1, 65538, 917505, 1, 2, 917506, 1, 1, 917507, 1, 65537, 917508, 1, 65537, 917509, 1, 1, 917510, 1, 65537, 917511, 1, 65536, 917512, 1, 0, 917513, 1, 65537, 917514, 1, 1, 917515, 1, 65537, 917516, 1, 65536, 917517, 1, 2, 917518, 1, 65537, 917519, 1, 1, 917520, 1, 65536 )
+script = ExtResource( 6 )
 
 [node name="UndergroundGen" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 80 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 48 )
 z_index = 2
 
 [node name="Teleporter" type="Node2D" parent="."]

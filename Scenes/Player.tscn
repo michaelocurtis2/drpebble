@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Textures/player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Tool.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Textures/drill.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 7 )
@@ -27,5 +28,5 @@ cast_to = Vector2( 0, 12 )
 collision_mask = 2
 collide_with_areas = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="Sprite" type="Sprite" parent="Tool"]
+texture = ExtResource( 4 )
