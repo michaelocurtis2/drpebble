@@ -4,20 +4,21 @@ onready var block = load("res://Scenes/Block.tscn")
 
 var tile_size = 16
 
-var h_limit = 16
-var v_limit = 9
+var x_limit = 20
+var y_limit = 30
 
 var rock_total = 0
 var coal_total = 0
 var diamond_total = 0
 
 func _ready():
+	$Area.visible = false
 	generate_tiles()
 
 
 func generate_tiles():
-	for i in h_limit:
-		for j in v_limit:
+	for i in x_limit:
+		for j in y_limit:
 			var inst = block.instance()
 			inst.type = randomise_tile()
 			inst.update_block()
