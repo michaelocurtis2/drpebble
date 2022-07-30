@@ -20,4 +20,4 @@ func update_block():
 	if type == 2:
 		block_name = "Diamond"
 	
-	$Sprite.texture = load("res://Resources/Textures/Blocks/"+block_name+".png")
+	$Sprite.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
