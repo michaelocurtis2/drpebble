@@ -34,7 +34,7 @@ func randomise_tile(var depth):
 	#Global.rng.randomize()
 	var chance = Global.rng.randf_range(0.0, 1.0)
 	
-	var depth_chance = (depth + 1) * 0.12
+	var depth_chance = (depth + 1) * 0.07
 	
 	if chance < (depth_chance * 0.02):
 		if (depth + 1) < (y_limit * 0.65):
