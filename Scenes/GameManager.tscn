@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Lowbar.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Resources/Textures/UI/rock.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Textures/UI/coal.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=8]
+[ext_resource path="res://Resources/Fonts/default_font_16px.tres" type="DynamicFont" id=9]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 7 )
@@ -17,94 +19,18 @@ script = ExtResource( 7 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="Topbar" type="Control" parent="GUI"]
-margin_right = 384.0
+[node name="GameUI" type="Control" parent="GUI"]
+visible = false
+margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 4 )
 
-[node name="TB_Rock" type="Control" parent="GUI/Topbar"]
-margin_right = 24.0
-margin_bottom = 32.0
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Topbar/TB_Rock"]
-margin_right = 24.0
-margin_bottom = 16.0
-texture = ExtResource( 5 )
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="GUI/Topbar/TB_Rock"]
-margin_top = 16.0
-margin_right = 24.0
-margin_bottom = 32.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="TB_Coal" type="Control" parent="GUI/Topbar"]
-margin_left = 24.0
-margin_right = 48.0
-margin_bottom = 32.0
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Topbar/TB_Coal"]
-margin_right = 24.0
-margin_bottom = 16.0
-texture = ExtResource( 6 )
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="GUI/Topbar/TB_Coal"]
-margin_top = 16.0
-margin_right = 24.0
-margin_bottom = 32.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="TB_Diamond" type="Control" parent="GUI/Topbar"]
-margin_left = 48.0
-margin_right = 72.0
-margin_bottom = 32.0
-
-[node name="TextureRect" type="TextureRect" parent="GUI/Topbar/TB_Diamond"]
-margin_right = 24.0
-margin_bottom = 16.0
-texture = ExtResource( 3 )
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="GUI/Topbar/TB_Diamond"]
-margin_top = 16.0
-margin_right = 24.0
-margin_bottom = 32.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="BalanceDisplay" type="Control" parent="GUI/Topbar"]
-margin_left = 320.0
-margin_right = 384.0
-margin_bottom = 32.0
-
-[node name="Bal" type="Label" parent="GUI/Topbar/BalanceDisplay"]
-margin_right = 64.0
-margin_bottom = 16.0
-text = "Balance"
-align = 1
-valign = 1
-
-[node name="Money" type="Label" parent="GUI/Topbar/BalanceDisplay"]
-margin_top = 16.0
-margin_right = 64.0
-margin_bottom = 32.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="Lowbar" type="Control" parent="GUI"]
+[node name="Lowbar" type="Control" parent="GUI/GameUI"]
 margin_top = 176.0
 margin_right = 384.0
 margin_bottom = 216.0
 script = ExtResource( 2 )
 
-[node name="WorldInfo" type="Control" parent="GUI/Lowbar"]
+[node name="WorldInfo" type="Control" parent="GUI/GameUI/Lowbar"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -112,16 +38,167 @@ anchor_bottom = 1.0
 margin_left = -104.0
 margin_top = -16.0
 
-[node name="SeedInfo" type="Label" parent="GUI/Lowbar/WorldInfo"]
+[node name="SeedInfo" type="Label" parent="GUI/GameUI/Lowbar/WorldInfo"]
 margin_left = 80.0
 margin_right = 104.0
 margin_bottom = 16.0
 text = ":Seed"
 valign = 1
 
-[node name="Seed" type="Label" parent="GUI/Lowbar/WorldInfo"]
+[node name="Seed" type="Label" parent="GUI/GameUI/Lowbar/WorldInfo"]
 margin_right = 72.0
 margin_bottom = 16.0
 text = "123123213"
 align = 2
 valign = 1
+
+[node name="Topbar" type="Control" parent="GUI/GameUI"]
+margin_right = 384.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="TB_Rock" type="Control" parent="GUI/GameUI/Topbar"]
+margin_right = 24.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="GUI/GameUI/Topbar/TB_Rock"]
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GUI/GameUI/Topbar/TB_Rock"]
+margin_top = 16.0
+margin_right = 24.0
+margin_bottom = 32.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="TB_Coal" type="Control" parent="GUI/GameUI/Topbar"]
+margin_left = 24.0
+margin_right = 48.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="GUI/GameUI/Topbar/TB_Coal"]
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GUI/GameUI/Topbar/TB_Coal"]
+margin_top = 16.0
+margin_right = 24.0
+margin_bottom = 32.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="TB_Diamond" type="Control" parent="GUI/GameUI/Topbar"]
+margin_left = 48.0
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="GUI/GameUI/Topbar/TB_Diamond"]
+margin_right = 24.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="GUI/GameUI/Topbar/TB_Diamond"]
+margin_top = 16.0
+margin_right = 24.0
+margin_bottom = 32.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="BalanceDisplay" type="Control" parent="GUI/GameUI/Topbar"]
+margin_left = 320.0
+margin_right = 384.0
+margin_bottom = 32.0
+
+[node name="Bal" type="Label" parent="GUI/GameUI/Topbar/BalanceDisplay"]
+margin_right = 64.0
+margin_bottom = 16.0
+text = "Balance"
+align = 1
+valign = 1
+
+[node name="Money" type="Label" parent="GUI/GameUI/Topbar/BalanceDisplay"]
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 32.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="PauseMenu" type="Control" parent="GUI"]
+pause_mode = 2
+visible = false
+margin_right = 384.0
+margin_bottom = 216.0
+mouse_filter = 2
+script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="GUI/PauseMenu"]
+margin_right = 384.0
+margin_bottom = 216.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="Controls" type="Control" parent="GUI/PauseMenu"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -60.0
+margin_right = 128.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="GUI/PauseMenu/Controls"]
+margin_left = 9.0
+margin_top = 32.0
+margin_right = 65.0
+margin_bottom = 73.0
+text = "WASD
+Arrows
+T
+F
+Esc"
+
+[node name="Label2" type="Label" parent="GUI/PauseMenu/Controls"]
+margin_left = 65.0
+margin_top = 32.0
+margin_right = 129.0
+margin_bottom = 73.0
+text = "Move
+Mine
+Teleport
+Sell
+Pause"
+
+[node name="Label3" type="Label" parent="GUI/PauseMenu/Controls"]
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 129.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 9 )
+text = "Controls"
+valign = 1
+
+[node name="Resume" type="Button" parent="GUI/PauseMenu"]
+margin_left = 320.0
+margin_top = 88.0
+margin_right = 376.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 48, 8 )
+text = "Resume"
+
+[node name="Quit" type="Button" parent="GUI/PauseMenu"]
+margin_left = 320.0
+margin_top = 112.0
+margin_right = 376.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 48, 8 )
+text = "Quit"
+
+[connection signal="pressed" from="GUI/PauseMenu/Resume" to="GUI/PauseMenu" method="_on_Resume_pressed"]
+[connection signal="pressed" from="GUI/PauseMenu/Quit" to="GUI/PauseMenu" method="_on_Quit_pressed"]

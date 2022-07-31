@@ -8,6 +8,7 @@ var money = 100
 
 var rng = RandomNumberGenerator.new()
 var world_seed = ""
+var display_gameui = false
 
 func switch_scenes(var next_scene):
 	var scene = get_parent().get_node("GameManager/CurrentScene")

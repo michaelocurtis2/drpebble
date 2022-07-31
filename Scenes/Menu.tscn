@@ -40,11 +40,4 @@ margin_right = 256.0
 margin_bottom = 160.0
 text = "Play"
 
-[node name="Label2" type="Label" parent="UI"]
-margin_left = 192.0
-margin_top = 64.0
-margin_right = 371.0
-margin_bottom = 78.0
-text = "Controls: WASD, ARROWS, T"
-
 [connection signal="pressed" from="UI/SeedSubmit" to="." method="_on_SeedSubmit_pressed"]
