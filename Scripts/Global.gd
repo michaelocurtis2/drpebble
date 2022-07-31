@@ -4,7 +4,10 @@ var rock = 0
 var coal = 0
 var diamond = 0
 
+var money = 100
+
 var rng = RandomNumberGenerator.new()
+var world_seed = ""
 
 func switch_scenes(var next_scene):
 	var scene = get_parent().get_node("GameManager/CurrentScene")
