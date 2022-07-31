@@ -37,7 +37,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 192, 112 )
+position = Vector2( 24, 49 )
 current = true
 script = ExtResource( 7 )
 
