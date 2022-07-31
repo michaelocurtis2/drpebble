@@ -19,5 +19,8 @@ func update_block():
 		
 	if type == 2:
 		block_name = "Diamond"
+		
+	#var angle = Global.rng.randi_range(0, 3)
+	#$Sprite.rotation_degrees = 90 * angle
 	
 	$Sprite.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
