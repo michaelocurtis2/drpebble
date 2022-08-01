@@ -18,24 +18,29 @@ func _ready():
 	
 
 func _process(_delta):
-	manage_damage()
 	$Damage.frame = damage_lvl
 
 
 func update_block():
+	#$Base.texture = load("res://Resources/Textures/Blocks/rock.png")
+	$Base.texture = load("res://Resources/Textures/Blocks/rock_variants.png")
+	$Base.hframes = 4
+	$Base.frame = Global.srng.randi_range(0, 3)
+	
 	if type == 0:
 		block_name = "Rock"
-		
+		$Resource.visible = false
+
 	if type == 1:
 		block_name = "Coal"
+		$Resource.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
 		
 	if type == 2:
 		block_name = "Diamond"
+		$Resource.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
 		
 	#var angle = Global.rng.randi_range(0, 3)
 	#$Sprite.rotation_degrees = 90 * angle
-	
-	$Sprite.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
 
 
 func manage_damage():

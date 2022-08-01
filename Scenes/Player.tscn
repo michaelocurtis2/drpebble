@@ -31,6 +31,7 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="Sprite" type="Sprite" parent="Tool"]
+z_index = 3
 texture = ExtResource( 4 )
 
 [node name="BreakNoise" type="AudioStreamPlayer2D" parent="Tool"]

@@ -64,6 +64,7 @@ func collision_check():
 					
 			else:
 				col.damage_lvl += damage_amount
+				col.manage_damage()
 				
 	else:
 		pass
