@@ -4,9 +4,8 @@ func _on_SeedSubmit_pressed():
 	var text = $UI/SeedText.text
 	
 	if text == "":
-		var srng = RandomNumberGenerator.new()
-		srng.randomize()
-		text = srng.randi()
+		Global.srng.randomize()
+		text = Global.srng.randi()
 	
 	Global.rng.set_seed(int(text))
 	Global.world_seed = text

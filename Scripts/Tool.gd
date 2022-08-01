@@ -1,11 +1,13 @@
 extends Node2D
 
 onready var raycast = $RayCast2D
-onready var sprite = $Sprite
+onready var drill = $Sprite
 
 var current_block = null
 var in_body = false
 var updated_angle = false
+
+var damage_amount = 1
 
 
 func _process(_delta):
@@ -15,22 +17,22 @@ func _process(_delta):
 func input_handler():
 	if Input.is_action_just_released("mine_up"):
 		raycast.rotation_degrees = 180
-		sprite.rotation_degrees = 270
+		drill.rotation_degrees = 270
 		collision_check()
 		
 	if Input.is_action_just_released("mine_down"):
 		raycast.rotation_degrees = 0
-		sprite.rotation_degrees = 90
+		drill.rotation_degrees = 90
 		collision_check()
 		
 	if Input.is_action_just_released("mine_left"):
 		raycast.rotation_degrees = 90
-		sprite.rotation_degrees = 180
+		drill.rotation_degrees = 180
 		collision_check()
 		
 	if Input.is_action_just_released("mine_right"):
 		raycast.rotation_degrees = 270
-		sprite.rotation_degrees = 0
+		drill.rotation_degrees = 0
 		collision_check()
 		
 
@@ -41,18 +43,28 @@ func collision_check():
 	if raycast.is_colliding():
 		
 		if col.mineable == true:
-			#print(col.name)
 			
-			if col.block_name == "Rock":
-				Global.rock += 1
+			# BreakNoise pitch variations
+			Global.srng.randomize()
+			$BreakNoise.pitch_scale = Global.srng.randf_range(0.4, 1.0)
+			$BreakNoise.play()
+			
+			# Damage level management
+			if col.damage_lvl == 2:
+				if col.block_name == "Rock":
+					Global.rock += 1
+					
+				if col.block_name == "Coal":
+					Global.coal += 1
+					
+				if col.block_name == "Diamond":
+					Global.diamond += 1
+					
+				col.queue_free()
+					
+			else:
+				col.damage_lvl += damage_amount
 				
-			if col.block_name == "Coal":
-				Global.coal += 1
-				
-			if col.block_name == "Diamond":
-				Global.diamond += 1
-				
-			col.queue_free()
 	else:
 		pass
 

@@ -7,6 +7,7 @@ var diamond = 0
 var money = 100
 
 var rng = RandomNumberGenerator.new()
+var srng = RandomNumberGenerator.new()
 var world_seed = ""
 var display_gameui = false
 
