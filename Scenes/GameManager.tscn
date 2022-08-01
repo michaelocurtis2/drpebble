@@ -30,28 +30,6 @@ margin_right = 384.0
 margin_bottom = 216.0
 script = ExtResource( 2 )
 
-[node name="WorldInfo" type="Control" parent="GUI/GameUI/Lowbar"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -104.0
-margin_top = -16.0
-
-[node name="SeedInfo" type="Label" parent="GUI/GameUI/Lowbar/WorldInfo"]
-margin_left = 80.0
-margin_right = 104.0
-margin_bottom = 16.0
-text = ":Seed"
-valign = 1
-
-[node name="Seed" type="Label" parent="GUI/GameUI/Lowbar/WorldInfo"]
-margin_right = 72.0
-margin_bottom = 16.0
-text = "123123213"
-align = 2
-valign = 1
-
 [node name="Topbar" type="Control" parent="GUI/GameUI"]
 margin_right = 384.0
 margin_bottom = 40.0
@@ -194,11 +172,43 @@ text = "Resume"
 
 [node name="Quit" type="Button" parent="GUI/PauseMenu"]
 margin_left = 320.0
-margin_top = 112.0
+margin_top = 136.0
 margin_right = 376.0
-margin_bottom = 128.0
+margin_bottom = 152.0
 rect_pivot_offset = Vector2( 48, 8 )
 text = "Quit"
 
+[node name="WorldInfo" type="Control" parent="GUI/PauseMenu"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -104.0
+margin_top = -16.0
+
+[node name="SeedInfo" type="Label" parent="GUI/PauseMenu/WorldInfo"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 16.0
+text = "- Seed"
+valign = 1
+
+[node name="Seed" type="Label" parent="GUI/PauseMenu/WorldInfo"]
+margin_left = -16.0
+margin_right = 64.0
+margin_bottom = 16.0
+text = "123123213"
+align = 2
+valign = 1
+
+[node name="ViewSeed" type="Button" parent="GUI/PauseMenu"]
+margin_left = 320.0
+margin_top = 112.0
+margin_right = 376.0
+margin_bottom = 128.0
+text = "View Seed"
+
 [connection signal="pressed" from="GUI/PauseMenu/Resume" to="GUI/PauseMenu" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Quit" to="GUI/PauseMenu" method="_on_Quit_pressed"]
+[connection signal="pressed" from="GUI/PauseMenu/ViewSeed" to="GUI/PauseMenu" method="_on_ViewSeed_pressed"]
