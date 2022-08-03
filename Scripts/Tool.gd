@@ -49,10 +49,12 @@ func collision_check():
 			$BreakNoise.pitch_scale = Global.srng.randf_range(0.4, 1.0)
 			$BreakNoise.play()
 			
+			print(Global.calculate_pos(col.global_position.y, col.global_position.x))
+			
 			col.damage_lvl += damage_amount
 			
 			# Damage level management
-			if col.damage_lvl == 3:
+			if col.damage_lvl == col.damage_max:
 				if col.block_name == "Rock":
 					Global.rock += 1
 					
