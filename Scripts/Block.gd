@@ -8,7 +8,7 @@ onready var coal_txt = preload("res://Resources/Textures/Blocks/coal.png")
 onready var diam_txt = preload("res://Resources/Textures/Blocks/diamond.png")
 
 var damage_lvl = 0
-var damage_max = 2
+var damage_max = 3 #hits from 1, 2, 3
 
 var timer_on = false
 var repair_delay = 5
