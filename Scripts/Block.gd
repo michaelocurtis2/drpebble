@@ -3,6 +3,10 @@ extends Node2D
 var block_name = "Rock"
 var type = 0
 
+onready var rock_txt = preload("res://Resources/Textures/Blocks/rock_variants.png")
+onready var coal_txt = preload("res://Resources/Textures/Blocks/coal.png")
+onready var diam_txt = preload("res://Resources/Textures/Blocks/diamond.png")
+
 var damage_lvl = 0
 var damage_max = 2
 
@@ -23,7 +27,7 @@ func _process(_delta):
 
 func update_block():
 	#$Base.texture = load("res://Resources/Textures/Blocks/rock.png")
-	$Base.texture = load("res://Resources/Textures/Blocks/rock_variants.png")
+	$Base.texture = rock_txt
 	$Base.hframes = 4
 	$Base.frame = Global.srng.randi_range(0, 3)
 	
@@ -33,11 +37,11 @@ func update_block():
 
 	if type == 1:
 		block_name = "Coal"
-		$Resource.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
+		$Resource.texture = coal_txt
 		
 	if type == 2:
 		block_name = "Diamond"
-		$Resource.texture = load("res://Resources/Textures/Blocks/"+block_name.to_lower()+".png")
+		$Resource.texture = diam_txt
 		
 	#var angle = Global.rng.randi_range(0, 3)
 	#$Sprite.rotation_degrees = 90 * angle
