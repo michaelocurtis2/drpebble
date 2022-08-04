@@ -7,3 +7,4 @@ func _process(_delta):
 	$TB_Diamond/Label.text = str(Global.diamond)
 	
 	$BalanceDisplay/Money.text = str("$" + str(Global.money))
+	$DrillDisplay/Damage.text = str(Global.tool_damage)

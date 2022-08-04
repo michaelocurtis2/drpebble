@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/InitialArea.gd" type="Script" id=1]
 [ext_resource path="res://Resources/alpha_world.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Teleporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UndergroundGen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/PlayerCam.gd" type="Script" id=7]
 [ext_resource path="res://Resources/Textures/shop.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=9]
@@ -61,6 +62,9 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shop/SellArea"]
 shape = SubResource( 1 )
+
+[node name="Table" parent="." instance=ExtResource( 6 )]
+position = Vector2( 392, 56 )
 
 [connection signal="body_entered" from="Shop/SellArea" to="Shop" method="_on_SellArea_body_entered"]
 [connection signal="body_exited" from="Shop/SellArea" to="Shop" method="_on_SellArea_body_exited"]

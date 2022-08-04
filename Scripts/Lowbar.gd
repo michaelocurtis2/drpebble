@@ -15,3 +15,7 @@ func set_is_cheating(value):
 
 func _on_Button_pressed():
 	Global.tool_damage = 8
+
+
+func _on_Button2_pressed():
+	Global.money += 1000

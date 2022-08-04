@@ -20,8 +20,7 @@ func _ready():
 	update_block()
 
 
-func update_variables(): 
-	#TODO: replace with some choice method
+func update_variables():
 	var data = Global.load_data(block_type.to_lower() + ".json")
 	
 	damage_max = data["damage_max"]

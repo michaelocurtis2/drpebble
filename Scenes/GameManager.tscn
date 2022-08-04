@@ -20,9 +20,8 @@ script = ExtResource( 7 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="GameUI" type="Control" parent="GUI"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 384.0
+margin_bottom = 216.0
 
 [node name="CheatMenu" type="Control" parent="GUI/GameUI"]
 visible = false
@@ -36,6 +35,12 @@ script = ExtResource( 2 )
 margin_right = 72.0
 margin_bottom = 16.0
 text = "Tool Damage 8"
+
+[node name="Button2" type="Button" parent="GUI/GameUI/CheatMenu"]
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 32.0
+text = "Money +1000"
 
 [node name="Topbar" type="Control" parent="GUI/GameUI"]
 margin_right = 384.0
@@ -111,6 +116,26 @@ align = 1
 valign = 1
 
 [node name="Money" type="Label" parent="GUI/GameUI/Topbar/BalanceDisplay"]
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 32.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="DrillDisplay" type="Control" parent="GUI/GameUI/Topbar"]
+margin_left = 256.0
+margin_right = 320.0
+margin_bottom = 32.0
+
+[node name="Bal" type="Label" parent="GUI/GameUI/Topbar/DrillDisplay"]
+margin_right = 64.0
+margin_bottom = 16.0
+text = "Drill Damage"
+align = 1
+valign = 1
+
+[node name="Damage" type="Label" parent="GUI/GameUI/Topbar/DrillDisplay"]
 margin_top = 16.0
 margin_right = 64.0
 margin_bottom = 32.0
@@ -217,6 +242,7 @@ margin_bottom = 128.0
 text = "View Seed"
 
 [connection signal="pressed" from="GUI/GameUI/CheatMenu/Button" to="GUI/GameUI/CheatMenu" method="_on_Button_pressed"]
+[connection signal="pressed" from="GUI/GameUI/CheatMenu/Button2" to="GUI/GameUI/CheatMenu" method="_on_Button2_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Resume" to="GUI/PauseMenu" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Quit" to="GUI/PauseMenu" method="_on_Quit_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/ViewSeed" to="GUI/PauseMenu" method="_on_ViewSeed_pressed"]
