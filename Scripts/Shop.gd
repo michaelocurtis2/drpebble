@@ -1,8 +1,8 @@
 extends Node2D
 
 var price_rock = 1
-var price_coal = 5
-var price_diamond = 50
+var price_coal = 8
+var price_diamond = 80
 
 var can_sell = false
 

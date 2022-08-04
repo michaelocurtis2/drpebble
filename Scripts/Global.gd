@@ -4,7 +4,7 @@ var rock = 0
 var coal = 0
 var diamond = 0
 
-var money = 100
+var money = 10
 
 var tool_damage = 1
 

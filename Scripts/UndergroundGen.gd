@@ -19,13 +19,14 @@ func _ready():
 
 
 func generate_tiles():
+	var gen_pos = (global_position.y / 16)
 	for i in x_limit:
 		for j in y_limit:
 			var inst = block.instance()
 			inst.block_type = generating_type
-			inst.resource_type = randomise_tile(j)
-			inst.update_block()
 			inst.position = Vector2(i * tile_size, j * tile_size)
+			inst.resource_type = randomise_tile(j + gen_pos)
+			inst.update_block()
 			add_child(inst)
 			
 	print("Rock:", rock_total)
@@ -34,23 +35,18 @@ func generate_tiles():
 
 
 func randomise_tile(var depth):
+	#print(depth)
 	#Global.rng.randomize()
 	var chance = Global.rng.randf_range(0.0, 1.0)
 	
-	var depth_chance = (depth + 1) * 0.07
+	var depth_chance = depth * 0.07
 	
-	if chance < (depth_chance * 0.02):
-		if (depth + 1) < (y_limit * 0.65):
-			#print("Rock")
-			rock_total += 1
-			return "Rock"
-			
-		else:
-			#print("Diamond")
-			diamond_total += 1
-			return "Diamond"
+	if chance < (depth_chance * 0.02) and (depth > 22):
+		#print("Diamond")
+		diamond_total += 1
+		return "Diamond"
 		
-	if chance < (depth_chance * 0.15):
+	if chance < (depth_chance * 0.14):
 		#print("Coal")
 		coal_total += 1
 		return "Coal"
