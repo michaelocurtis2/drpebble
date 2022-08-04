@@ -24,11 +24,18 @@ visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Lowbar" type="Control" parent="GUI/GameUI"]
-margin_top = 176.0
+[node name="CheatMenu" type="Control" parent="GUI/GameUI"]
+visible = false
+margin_left = 312.0
+margin_top = 40.0
 margin_right = 384.0
 margin_bottom = 216.0
 script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="GUI/GameUI/CheatMenu"]
+margin_right = 72.0
+margin_bottom = 16.0
+text = "Tool Damage 8"
 
 [node name="Topbar" type="Control" parent="GUI/GameUI"]
 margin_right = 384.0
@@ -209,6 +216,7 @@ margin_right = 376.0
 margin_bottom = 128.0
 text = "View Seed"
 
+[connection signal="pressed" from="GUI/GameUI/CheatMenu/Button" to="GUI/GameUI/CheatMenu" method="_on_Button_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Resume" to="GUI/PauseMenu" method="_on_Resume_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/Quit" to="GUI/PauseMenu" method="_on_Quit_pressed"]
 [connection signal="pressed" from="GUI/PauseMenu/ViewSeed" to="GUI/PauseMenu" method="_on_ViewSeed_pressed"]
