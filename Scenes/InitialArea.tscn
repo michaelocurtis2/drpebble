@@ -17,6 +17,12 @@ script = ExtResource( 1 )
 
 [node name="UndergroundGen" parent="." instance=ExtResource( 5 )]
 position = Vector2( 48, 112 )
+y_limit = 20
+
+[node name="UndergroundGen2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 48, 432 )
+generating_type = "Hard Rock"
+y_limit = 10
 
 [node name="Overground" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )

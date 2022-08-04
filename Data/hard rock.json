@@ -1,0 +1,5 @@
+{
+    "damage_max": 8,
+    "repair_time": 8,
+	"pitch_range": [0.3, 0.6]
+}

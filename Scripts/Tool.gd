@@ -7,7 +7,6 @@ var current_block = null
 var in_body = false
 var updated_angle = false
 
-var damage_amount = 1
 
 
 func _process(_delta):
@@ -46,22 +45,24 @@ func collision_check():
 			
 			# BreakNoise pitch variations
 			Global.srng.randomize()
-			$BreakNoise.pitch_scale = Global.srng.randf_range(0.4, 1.0)
+			var ptch = Global.srng.randf_range(col.pitch_range[0], col.pitch_range[1])
+			$BreakNoise.pitch_scale = ptch
 			$BreakNoise.play()
 			
-			print(Global.calculate_pos(col.global_position.y, col.global_position.x))
+			#print(Global.calculate_pos(col.global_position.y, col.global_position.x))
 			
-			col.damage_lvl += damage_amount
+			col.damage_lvl += Global.tool_damage
+			
 			
 			# Damage level management
-			if col.damage_lvl == col.damage_max:
-				if col.block_name == "Rock":
+			if col.damage_lvl >= col.damage_max:
+				if col.resource_type == "Rock":
 					Global.rock += 1
 					
-				if col.block_name == "Coal":
+				if col.resource_type == "Coal":
 					Global.coal += 1
 					
-				if col.block_name == "Diamond":
+				if col.resource_type == "Diamond":
 					Global.diamond += 1
 					
 				col.queue_free()

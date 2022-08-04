@@ -7,4 +7,4 @@ script = ExtResource( 2 )
 
 [node name="Area" type="ColorRect" parent="."]
 margin_right = 320.0
-margin_bottom = 480.0
+margin_bottom = 360.0
